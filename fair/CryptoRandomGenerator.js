@@ -9,16 +9,7 @@ export default class CryptoRandomGenerator {
   }
 
   static getSecureInt(max, min = 0) {
-    if (max <= 0) throw new Error('Range must be positive');
-    const range = max - min + 1;
-    const maxAcceptable = Math.floor(256 / range) * range - 1;
-
-    let byte;
-    do {
-      [byte] = crypto.randomBytes(1);
-    } while (byte > maxAcceptable);
-
-    return min + (byte % range);
+    return crypto.randomInt(min, max);
   }
 
   static computeHMAC_SHA3(message, hexKey) {

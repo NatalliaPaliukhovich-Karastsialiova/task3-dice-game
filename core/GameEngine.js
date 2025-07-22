@@ -17,7 +17,7 @@ export default class GameEngine {
   }
 
   async determineFirstPlayer() {
-    const hmac = this.computer.generateSecretNumber(this.usersRange);
+    const hmac = this.computer.generateSecretNumber(this.usersRange + 1);
     this.cli.printChooseFirstPlayerMsg(hmac);
     const userInput = await this.user.selectValue(this.usersRange);
     const userGuess = parseInt(userInput, 10);
@@ -77,7 +77,7 @@ export default class GameEngine {
     this.cli.print(
       isUser ? `It's time for your roll.` : `It's time for my roll.`
     );
-    const hmac = this.computer.generateSecretNumber(range);
+    const hmac = this.computer.generateSecretNumber(range + 1);
     this.cli.print(
       `I selected a random value in the range 0..${range} (HMAC=${hmac}).`
     );
