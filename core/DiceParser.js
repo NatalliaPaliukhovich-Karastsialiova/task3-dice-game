@@ -1,13 +1,13 @@
 import Dice from './Dice.js';
 
 export default class DiceParser {
-
   static parse(argv) {
-
     const args = argv.slice(2);
 
     if (args.length < 3) {
-      throw new Error('You must provide at least 3 dice. Example: 2,2,4,4,9,9 6,8,1,1,8,6 7,5,3,7,5,3');
+      throw new Error(
+        'You must provide at least 3 dice. Example: 2,2,4,4,9,9 6,8,1,1,8,6 7,5,3,7,5,3'
+      );
     }
 
     const diceList = args.map((arg, index) => {
@@ -17,8 +17,8 @@ export default class DiceParser {
       }
 
       const numbers = parts.map((n) => {
-        const value = parseInt(n);
-        if (isNaN(value)) {
+        const value = parseInt(n, 10);
+        if (Number.isNaN(value)) {
           throw new Error(`Non-integer value in dice #${index + 1}: "${n}"`);
         }
         return value;
@@ -29,5 +29,4 @@ export default class DiceParser {
 
     return diceList;
   }
-
 }

@@ -3,12 +3,12 @@ export default class ProbabilityCalculator {
     let wins = 0;
     let total = 0;
 
-    for (const u of userDice.getFaces()) {
-      for (const o of opponentDice.getFaces()) {
-        if (parseInt(u) > parseInt(o)) wins++;
-        total++;
-      }
-    }
+    userDice.getFaces().forEach((u) => {
+      opponentDice.getFaces().forEach((o) => {
+        if (parseInt(u, 10) > parseInt(o, 10)) wins += 1;
+        total += 1;
+      });
+    });
 
     return wins / total;
   }

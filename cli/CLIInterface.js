@@ -29,7 +29,7 @@ export default class CLIInterface {
   }
 
   showOptions(maxOptionValue) {
-    for(let i = 0; i <= maxOptionValue; i++){
+    for (let i = 0; i <= maxOptionValue; i += 1) {
       console.log(`${i} - ${i}`);
     }
     console.log('X - exit');
@@ -41,7 +41,7 @@ export default class CLIInterface {
   }
 
   printChooseFirstPlayerMsg(hmac) {
-    console.log(`Let\'s determine who makes the first move.`);
+    console.log(`Let's determine who makes the first move.`);
     console.log(`I selected a random value in the range 0..1 (HMAC=${hmac}).`);
     console.log('Try to guess my selection.');
     this.showOptions(1);

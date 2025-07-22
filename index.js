@@ -1,8 +1,10 @@
 import DiceParser from './core/DiceParser.js';
 import GameEngine from './core/GameEngine.js';
+import DiceList from './utils/DiceList.js';
 
 try {
   const diceList = DiceParser.parse(process.argv);
+  DiceList.init(diceList);
   const engine = new GameEngine(diceList, 1, 5);
   await engine.start();
 } catch (err) {

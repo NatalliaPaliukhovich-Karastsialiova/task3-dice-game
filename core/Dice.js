@@ -4,8 +4,8 @@ export default class Dice {
       throw new Error('Dice must have at least one face.');
     }
     this.faces = values.map((v) => {
-      const n = parseInt(v);
-      if (isNaN(n)) throw new Error(`Invalid face value: ${v}`);
+      const n = parseInt(v, 10);
+      if (Number.isNaN(n)) throw new Error(`Invalid face value: ${v}`);
       return n;
     });
   }

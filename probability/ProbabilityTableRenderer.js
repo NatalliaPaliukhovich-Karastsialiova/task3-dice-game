@@ -4,26 +4,26 @@ import ProbabilityCalculator from './ProbabilityCalculator.js';
 export default class ProbabilityTableRenderer {
   static show(diceList, cli) {
     const table = new Table({
-      head: ['User dice v', ...diceList.map(d => d.getFaces().join(','))],
+      head: ['User dice v', ...diceList.map((d) => d.getFaces().join(','))],
       style: {
         head: ['green'],
         border: ['white'],
         compact: false,
         'padding-left': 1,
         'padding-right': 1,
-        wordWrap: true
+        wordWrap: true,
       },
     });
-    for (const userDice of diceList) {
+    diceList.forEach((userDice) => {
       const row = [userDice.getFaces().join(',')];
 
-      for (const opponentDice of diceList) {
+      diceList.forEach((opponentDice) => {
         const prob = ProbabilityCalculator.calculate(userDice, opponentDice);
         row.push(prob.toFixed(4));
-      }
+      });
 
       table.push(row);
-    }
+    });
 
     cli.print(`Probability of the win for the user:`);
     cli.print(table.toString());

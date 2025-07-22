@@ -1,7 +1,5 @@
-import CLIInterface from '../../cli/CLIInterface.js';
-
 export default class Player {
-  constructor(cli, dice) {
+  constructor(cli) {
     this.dice = null;
     this.cli = cli;
   }

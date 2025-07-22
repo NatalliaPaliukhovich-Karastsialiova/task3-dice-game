@@ -11,7 +11,10 @@ export default class FairRandomProtocol {
   commit() {
     this.secretNumber = CryptoRandomGenerator.getSecureInt(this.rangeMax);
     this.secretKey = CryptoRandomGenerator.generateKey();
-    this.hmac = CryptoRandomGenerator.computeHMAC_SHA3(this.secretNumber, this.secretKey);
+    this.hmac = CryptoRandomGenerator.computeHMAC_SHA3(
+      this.secretNumber,
+      this.secretKey
+    );
     return this.hmac;
   }
 

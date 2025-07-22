@@ -2,10 +2,6 @@ import FairRandomProtocol from '../../fair/FairRandomProtocol.js';
 import Player from './Player.js';
 
 export default class Computer extends Player {
-  constructor(cli, dice) {
-    super(cli, dice);
-  }
-
   selectDice(diceList) {
     const index = Math.floor(Math.random() * diceList.length);
     const selectedDice = diceList[index];
@@ -34,10 +30,10 @@ export default class Computer extends Player {
     const finalIndex = (this._number + userValue) % 6;
     this.finalValue = this.dice.getFace(finalIndex);
     return {
-        index: this._number,
-        key: this._key,
-        module: finalIndex,
-        value: this.finalValue
+      index: this._number,
+      key: this._key,
+      module: finalIndex,
+      value: this.finalValue,
     };
   }
 }
