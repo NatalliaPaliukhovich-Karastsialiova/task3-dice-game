@@ -6,7 +6,7 @@ export default class DiceParser {
 
     if (args.length < 3) {
       throw new Error(
-        'You must provide at least 3 dice. Example: 2,2,4,4,9,9 6,8,1,1,8,6 7,5,3,7,5,3'
+        'You must provide at least 3 dice.'
       );
     }
 
